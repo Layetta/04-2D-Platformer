@@ -57,3 +57,5 @@ func set_animation(anim):
 
 func die():
 	queue_free()
+
+

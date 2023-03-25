@@ -3,8 +3,6 @@ extends Node
 onready var SM = get_parent()
 onready var player = get_node("../..")
 
-onready var prev_direction = player.direction
-
 func _ready():
 	yield(player, "ready")
 
@@ -15,15 +13,12 @@ func start():
 func physics_process(_delta):
 	if not player.is_on_floor():
 		SM.set_state("Falling")
-	else:
-		player.velocity.y = 0
 	if Input.is_action_pressed("jump"):
 		SM.set_state("Moving_and_Jumping")
-	if player.is_moving():
-		if player.direction != prev_direction:
-			player.velocity.x = 0
-			prev_direction = player.direction
-		player.velocity += player.move_speed * player.move_vector()
+	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+		var input_vector = Vector2(Input.get_action_strength("right") - Input.get_action_strength("left"),1.0)
+		player.set_direction(sign(input_vector.x))
+		player.velocity += player.move_speed * input_vector
 		player.move_and_slide(player.velocity, Vector2.UP)
 	else:
 		player.velocity = Vector2.ZERO
