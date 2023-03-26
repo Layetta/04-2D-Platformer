@@ -5,7 +5,8 @@ onready var previous_state = null
 onready var state_name = ""
 
 func _ready():
-	set_state(get_children()[0].name)
+	if get_child_count():
+		set_state(get_children()[0].name)
 
 func _physics_process(delta):
 	if state and state.has_method("physics_process"):
@@ -22,11 +23,13 @@ func _unhandled_input(event):
 func set_state(s):
 	state_name = s
 	var new_state = get_node(s)
-	if state != null:
-		if state.has_method("end"):
-			state.end()
-		previous_state = state
 	if new_state != null:
+		if state != null:
+			if state.has_method("end"):
+				state.end()
+			previous_state = state
 		state = new_state
 		if state.has_method("start"):
 			state.start()
+	else:
+		state = null

@@ -1,0 +1,350 @@
+[gd_scene load_steps=55 format=2]
+
+[ext_resource path="res://Assets/Darek Spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://StateMachine/Jumping.gd" type="Script" id=2]
+[ext_resource path="res://StateMachine/Moving.gd" type="Script" id=3]
+[ext_resource path="res://StateMachine/StateMachine.gd" type="Script" id=4]
+[ext_resource path="res://StateMachine/Coyote.gd" type="Script" id=5]
+[ext_resource path="res://StateMachine/Idle.gd" type="Script" id=6]
+[ext_resource path="res://StateMachine/Falling.gd" type="Script" id=7]
+[ext_resource path="res://StateMachine/Moving_and_Jumping.gd" type="Script" id=8]
+[ext_resource path="res://Player/Player.gd" type="Script" id=9]
+[ext_resource path="res://Player/Attack.gd" type="Script" id=10]
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 954, 348, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 464, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 159, 464, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 318, 464, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 477, 464, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 636, 464, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 795, 464, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 954, 464, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 159, 348, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 318, 348, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 159, 0, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 318, 0, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 477, 0, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 232, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 159, 232, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 318, 232, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 477, 232, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 636, 232, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 795, 232, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 954, 232, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 348, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=40]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 159, 116, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=41]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 318, 116, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=42]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 477, 116, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=43]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 636, 116, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=44]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 795, 116, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=45]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 954, 116, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=46]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 159, 116, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=47]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 318, 116, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=48]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 477, 116, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=49]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 636, 116, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=50]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 795, 116, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=51]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 954, 116, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=52]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 232, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=53]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 159, 232, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 318, 232, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=55]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 477, 232, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=56]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 636, 232, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=57]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 795, 232, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=58]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 954, 232, 159, 116 )
+
+[sub_resource type="AtlasTexture" id=59]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 348, 159, 116 )
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"loop": true,
+"name": "Attacking",
+"speed": 11.0
+}, {
+"frames": [ SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "Falling",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ) ],
+"loop": true,
+"name": "Moving",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ) ],
+"loop": true,
+"name": "Moving_and_Jumping",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 24.5, 40.5 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 200, 200 )
+script = ExtResource( 9 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -1, 0 )
+frames = SubResource( 21 )
+animation = "Attacking"
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3.5, 11.5 )
+shape = SubResource( 16 )
+
+[node name="Attack" type="RayCast2D" parent="."]
+position = Vector2( 0, 10 )
+enabled = true
+cast_to = Vector2( 38, 0 )
+collision_mask = 3
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="Left" type="RayCast2D" parent="Floor"]
+position = Vector2( -7, 26.125 )
+enabled = true
+cast_to = Vector2( 1, 30.875 )
+collision_mask = 30
+
+[node name="Center" type="RayCast2D" parent="Floor"]
+position = Vector2( -0.75, 26.125 )
+enabled = true
+cast_to = Vector2( 0.75, 30.875 )
+collision_mask = 30
+
+[node name="Right" type="RayCast2D" parent="Floor"]
+position = Vector2( 5.75, 26.125 )
+enabled = true
+cast_to = Vector2( 0.25, 30.875 )
+collision_mask = 2147483678
+
+[node name="Wall" type="Node2D" parent="."]
+
+[node name="Left" type="RayCast2D" parent="Wall"]
+position = Vector2( -10, 0.25 )
+enabled = true
+cast_to = Vector2( -5, 0 )
+collision_mask = 30
+collide_with_areas = true
+
+[node name="Right" type="RayCast2D" parent="Wall"]
+position = Vector2( 3.66006, -0.2892 )
+enabled = true
+cast_to = Vector2( 5, 0 )
+collision_mask = 30
+collide_with_areas = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+
+[node name="Moving" type="Node" parent="StateMachine"]
+script = ExtResource( 3 )
+
+[node name="Jumping" type="Node" parent="StateMachine"]
+script = ExtResource( 2 )
+
+[node name="Moving_and_Jumping" type="Node" parent="StateMachine"]
+script = ExtResource( 8 )
+
+[node name="Attacking" type="Node" parent="StateMachine"]
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="StateMachine/Attacking"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Falling" type="Node" parent="StateMachine"]
+script = ExtResource( 7 )
+
+[node name="Coyote" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="StateMachine/Coyote"]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="StateMachine/Coyote/Timer" to="StateMachine/Coyote" method="_on_Timer_timeout"]
