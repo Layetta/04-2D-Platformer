@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Assets/Darek Spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://StateMachine/Jumping.gd" type="Script" id=2]
@@ -241,7 +241,7 @@ animations = [ {
 "frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
 "loop": true,
 "name": "Jumping",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [ SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ) ],
 "loop": true,
@@ -251,11 +251,15 @@ animations = [ {
 "frames": [ SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ) ],
 "loop": true,
 "name": "Moving_and_Jumping",
-"speed": 5.0
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 24.5, 40.5 )
+extents = Vector2( 30.25, 40.5 )
+
+[sub_resource type="CapsuleShape2D" id=60]
+radius = 35.0
+height = 68.0
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 200, 200 )
@@ -264,12 +268,12 @@ script = ExtResource( 9 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -1, 0 )
 frames = SubResource( 21 )
-animation = "Attacking"
+animation = "Moving_and_Jumping"
 frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -3.5, 11.5 )
+position = Vector2( 1.75, 16 )
 shape = SubResource( 16 )
 
 [node name="Attack" type="RayCast2D" parent="."]
@@ -346,5 +350,14 @@ script = ExtResource( 5 )
 wait_time = 0.2
 one_shot = true
 
+[node name="Coin_collector" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin_collector"]
+position = Vector2( 2, 16 )
+shape = SubResource( 60 )
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="StateMachine/Coyote/Timer" to="StateMachine/Coyote" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Coin_collector" to="." method="_on_Coin_collector_body_entered"]

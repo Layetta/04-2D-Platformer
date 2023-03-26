@@ -41,17 +41,17 @@ func _physics_process(_delta):
 			SM.set_state("Attacking")
 
 func is_moving():
-	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+	if Input.is_action_pressed("Left") or Input.is_action_pressed("Right"):
 		return true
 	return false
 
 func move_vector():
-	return Vector2(Input.get_action_strength("right") - Input.get_action_strength("left"),1.0)
+	return Vector2(Input.get_action_strength("Right") - Input.get_action_strength("Left"),1.0)
 
 func _unhandled_input(event):
-	if event.is_action_pressed("left"):
+	if event.is_action_pressed("Left"):
 		direction = -1
-	if event.is_action_pressed("right"):
+	if event.is_action_pressed("Right"):
 		direction = 1
 
 func set_animation(anim):
@@ -92,5 +92,11 @@ func die():
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "Attacking":
 		SM.set_state("Idle")
+		
+		
+		
 
+func _on_Coin_collector_body_entered(body):
+	if body.name == "Coins":
+		body.get_coin(global_position)
 
