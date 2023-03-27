@@ -22,6 +22,8 @@ var is_jumping = false
 var double_jumped = false
 var should_direction_flip = true # wether or not player controls (left/right) can flip the player sprite
 
+var deaths = 0
+
 
 func _physics_process(_delta):
 	velocity.x = clamp(velocity.x,-max_move,max_move)
@@ -87,6 +89,8 @@ func set_wall_raycasts(is_enabled):
 	$Wall/Right.enabled = is_enabled
 
 func die():
+	Global.update_lives(-1)
+
 	queue_free()
 	
 func _on_AnimatedSprite_animation_finished():
@@ -94,6 +98,15 @@ func _on_AnimatedSprite_animation_finished():
 		SM.set_state("Idle")
 		
 		
+func attack():
+	if $Attack.is_colliding():
+		var target = $Attack.get_collider()
+		if target.has_method("damage"):
+			target.damage()
+	if $Attack_low.is_colliding():
+		var target = $Attack_low.get_collider()
+		if target.has_method("damage"):
+			target.damage()
 		
 
 func _on_Coin_collector_body_entered(body):

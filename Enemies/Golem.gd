@@ -4,12 +4,16 @@ onready var SM = $StateMachine
 
 export var walking = 50
 export var running = 1000
-export var path = [Vector2(900,520), Vector2(1200,520)]
+#export var path = [Vector2(900,520), Vector2(1200,520)]
+#export var path = [Vector2(900,200), Vector2(1200,200)]
+export var path = [Vector2(0,520),Vector2(0,520)]
 var velocity = Vector2.ZERO
 var direction = 1
 
 func _ready():
-	path = [Vector2(3000,520), Vector2(4000,520)]
+	#path = [Vector2(3000,520), Vector2(4000,520)]
+	#path = [Vector2(400,520), Vector2(900,520)]
+	#path = [Vector2(600,520), Vector2(1000,520)]
 	position = path[0]
 	velocity.x = walking
 	SM.set_state("Move")
@@ -31,6 +35,7 @@ func _physics_process(_delta):
 		$Attack.cast_to.x = abs($Attack.cast_to.x)
 	if $AnimatedSprite.animation == "Attack": $AnimatedSprite.offset.x = 7*direction
 	else: $AnimatedSprite.offset.x = 0
+
 	
 func set_animation(anim):
 	if $AnimatedSprite.animation == anim: return

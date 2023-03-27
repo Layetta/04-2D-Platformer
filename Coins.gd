@@ -6,9 +6,15 @@ var coins = []
 var numCoinsFound = 0;
 
 func _ready():
+	for x in range(15):
+		for y in range(1):
+			set_cellv(Vector2(x*3+9,y+2),0)
+	
+	
 	for x in range(1000):
 		for y in range(1000):
 			if get_cell(x, y) != -1:
+				print(get_cell(x,y))
 				coins.append(Vector2(x,y))
 
 

@@ -9,6 +9,5 @@ func _process(_delta):
 		var score_text = get_node_or_null("/root/Game/Score")
 		score_text.set_position(position+Vector2(-20,-60))
 
-
-		score_text.set_text("Score: "+String(coins.numCoinsFound))
+		score_text.set_text("Lives: " + String(Global.lives)+ "\nScore: "+String(coins.numCoinsFound))
 		
