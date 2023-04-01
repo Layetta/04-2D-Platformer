@@ -606,8 +606,9 @@ points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 [node name="Game" type="Node2D"]
 position = Vector2( 0, 2 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+autoplay = true
 
 [node name="Player_Container" type="Node2D" parent="."]
 script = ExtResource( 12 )
