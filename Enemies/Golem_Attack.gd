@@ -18,5 +18,6 @@ func physics_process(_delta):
 func _on_Timer_timeout():
 	if SM.state_name == "Attack":
 		var target = enemy.attack_target()
+		print(target.name)
 		if target != null and target.name == "Player":
 			target.die()

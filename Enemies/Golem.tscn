@@ -98,7 +98,7 @@ script = ExtResource( 6 )
 position = Vector2( 1, -77 )
 frames = SubResource( 6 )
 animation = "Move"
-frame = 1
+frame = 4
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
@@ -107,7 +107,7 @@ shape = SubResource( 16 )
 
 [node name="Attack" type="RayCast2D" parent="."]
 enabled = true
-cast_to = Vector2( 200, 0 )
+cast_to = Vector2( -200, 0 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -116,7 +116,7 @@ script = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="StateMachine/Attack"]
-wait_time = 2.25
+wait_time = 0.5
 one_shot = true
 
 [node name="Move" type="Node" parent="StateMachine"]
